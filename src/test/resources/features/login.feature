@@ -25,5 +25,5 @@
         | user                   | password | message          | name             |
         | emailinvalido          | 123456   | E-mail inválido. | E-mail inválido  |
         |                        | 123456   | E-mail inválido. | E-mail vazio     |
-        | lucas.rosa@qazando.com | 123456   | Senha inválida.  | Senha inválida   |
+        | lucas.rosa@qazando.com | 1234     | Senha inválida.  | Senha inválida   |
         | lucas.rosa@qazando.com |          | Senha inválida.  | Senha vazia      |
