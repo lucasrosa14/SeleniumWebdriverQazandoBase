@@ -17,16 +17,18 @@ public class RunBase {
 
     public static WebDriver getDriver(String browser) {
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-
         if (driver !=  null) {
             driver.quit();
         }
 
         switch (browser) {
             case "chrome":
-                driver = new ChromeDriver(options);
+                driver = new ChromeDriver();
+                break;
+            case "chrome-ci":
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless");
+                driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
