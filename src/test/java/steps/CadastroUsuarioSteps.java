@@ -10,7 +10,7 @@ import pages.LoginPage;
 import runner.RunCucumber;
 import support.ScreenshotUtils;
 
-//import static support.Utils.generateRandomPassword;
+import static support.Utils.generateRandomPassword;
 import static support.Utils.getRandomEmail;
 
 public class CadastroUsuarioSteps extends RunCucumber {
@@ -28,7 +28,7 @@ public class CadastroUsuarioSteps extends RunCucumber {
     public void preencho_campos_obrigatorios() {
         cadastroPage.preencheNome("Eduardo");
         cadastroPage.preencheEmail(getRandomEmail());
-        cadastroPage.preencherSenha("123456");
+        cadastroPage.preencherSenha(generateRandomPassword());
     }
 
     @Quando("^clico em cadastrar$")
