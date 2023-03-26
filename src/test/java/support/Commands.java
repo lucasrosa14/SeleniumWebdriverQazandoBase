@@ -2,6 +2,7 @@ package support;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import runner.RunCucumber;
@@ -47,11 +48,10 @@ public class Commands extends RunCucumber {
     }
 
     public static void checkMessage(By element, String expectedMessage) {
-        String actualMessage = "";
         System.out.println("##############################################");
         System.out.println("********* Vai validar mensagem: " + expectedMessage);
         waitElementBeVisible(element, 10000);
-        actualMessage = getDriver().findElement(element).getText();
+        String actualMessage = getDriver().findElement(element).getText();
 
         //Quando não der certo, vai quebrar o teste!!!
         Assert.assertEquals("Erro ao validar mensagens", expectedMessage, actualMessage);

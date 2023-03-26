@@ -1,10 +1,13 @@
 package steps;
 
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
 import pages.LoginPage;
 import runner.RunCucumber;
+import support.ScreenshotUtils;
 
 public class LoginSteps extends RunCucumber {
 
@@ -19,7 +22,7 @@ public class LoginSteps extends RunCucumber {
     @Quando("^preencho login \"([^\"]*)\" e senha \"([^\"]*)\"$")
     public void preencho_login_e_senha(String email, String senha) {
         loginPage.preencheEmail(email);
-        loginPage.preencherSenha(senha);
+        loginPage.preencheSenha(senha);
     }
 
     @Quando("^clico em Login$")
@@ -47,9 +50,14 @@ public class LoginSteps extends RunCucumber {
         loginPage.acessarAplicao();
         loginPage.acessarTelaLogin();
         loginPage.preencheEmail(email);
-        loginPage.preencherSenha(senha);
+        loginPage.preencheSenha(senha);
         loginPage.clicarLogin();
         loginPage.verificaLoginSucesso();
+    }
+
+    @After
+    public static void afterScenario(Scenario scenario){
+        ScreenshotUtils.addScreenshotOnScenario(scenario);
     }
 
 }

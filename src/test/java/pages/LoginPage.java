@@ -30,7 +30,7 @@ public class LoginPage extends RunCucumber {
          fillFields(campoEmail, email);
     }
 
-    public void preencherSenha(String senha){
+    public void preencheSenha(String senha){
        fillFields(campoSenha, senha);
     }
 
@@ -39,7 +39,7 @@ public class LoginPage extends RunCucumber {
     }
 
     public void verificaLoginSucesso(){
-        checkMessage((By.id("swal2-title")), "Login realizado");
+        checkMessage((By.id("swal2-title")), "Login realizadoss");
     }
 
     public void verificaCampoVazio(String message){
