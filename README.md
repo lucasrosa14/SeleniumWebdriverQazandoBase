@@ -9,5 +9,6 @@
 * Gherkin
 * Cucumber
 * Selenium Webdriver
+* Github Actions (CI/CD pipeline)
 
 @autor: lucasrosa14
