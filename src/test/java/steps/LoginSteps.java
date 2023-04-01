@@ -59,5 +59,5 @@ public class LoginSteps extends RunCucumber {
     public static void afterScenario(Scenario scenario){
         ScreenshotUtils.addScreenshotOnScenario(scenario);
     }
-
+    
 }

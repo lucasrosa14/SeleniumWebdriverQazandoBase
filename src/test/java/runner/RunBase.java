@@ -20,13 +20,14 @@ public class RunBase {
         if (driver !=  null) {
             driver.quit();
         }
-
+        ChromeOptions chromeOptions = new ChromeOptions();
         switch (browser) {
+
             case "chrome":
-                driver = new ChromeDriver();
+                chromeOptions.addArguments("--start-maximized");
+                driver = new ChromeDriver(chromeOptions);
                 break;
             case "chrome-ci":
-                ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
                 break;
