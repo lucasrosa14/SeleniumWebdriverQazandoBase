@@ -11,7 +11,7 @@
 
     @login-sucesso
     Cenário: Login com sucesso
-      Quando preencho login "lucas.rosa@qazando.com" e senha "123456"
+      Quando preencho login "lucas.rosa@qazando.com" e senha "1234"
       E clico em Login
       Então vejo mensagem de login com sucesso
 
