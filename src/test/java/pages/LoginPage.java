@@ -39,7 +39,7 @@ public class LoginPage extends RunCucumber {
     }
 
     public void verificaLoginSucesso(){
-        checkMessage((By.id("swal2-title")), "Login realizado");
+        checkMessage((By.id("swal2-title")), "Login realizada");
     }
 
     public void verificaCampoVazio(String message){
