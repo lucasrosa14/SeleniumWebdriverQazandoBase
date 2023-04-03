@@ -29,7 +29,7 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
       - name: Run Test
-        run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci
+        run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci -D"cucumber.filter.tags=@login-sucesso"
 
       - name: Gerar relatório
         if: always()
@@ -41,3 +41,25 @@ jobs:
         with:
           name: report-tests
           path: '**/formated-report/'
+
+      - name: Enviar notificação Slack - Sucesso
+        if: ${{ success() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://cdn-icons-png.flaticon.com/512/148/148767.png?size=48
+          SLACK_MESSAGE: 'Sucesso na execução dos testes do PR :white_check_mark:'
+          SLACK_TITLE: 'Sucesso na execução dos testes do PR :white_check_mark:'
+          SLACK_USERNAME: SUCESSO
+
+      - name: Enviar notificação Slack - Falha
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQobWv5KNc4Tt0mNS5tWpHojJb5q2y_glZax8QwLe6g&s?size=48
+          SLACK_MESSAGE: 'Falha na execução dos testes do PR :rotating_light:'
+          SLACK_TITLE: 'Falha na execução dos testes do PR :rotating_light:'
+          SLACK_USERNAME: FALHA
