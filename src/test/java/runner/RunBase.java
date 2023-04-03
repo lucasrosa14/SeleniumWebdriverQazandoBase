@@ -24,11 +24,11 @@ public class RunBase {
         switch (browser) {
 
             case "chrome":
-                chromeOptions.addArguments("--start-maximized");
+                chromeOptions.addArguments("--start-maximized", "--remote-allow-origins=*");
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "chrome-ci":
-                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("--headless", "--remote-allow-origins=*");
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":

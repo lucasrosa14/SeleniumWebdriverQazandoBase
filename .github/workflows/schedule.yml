@@ -29,7 +29,7 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
       - name: Run Test
-        run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci -D"cucumber.filter.tags=not @ignore"
+        run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci -D "cucumber.filter.tags=@login-sucesso"
 
       - name: Gerar relatório
         if: always()

@@ -1,6 +1,6 @@
 package support;
 
-import cucumber.api.Scenario;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -18,7 +18,7 @@ public class ScreenshotUtils {
 
         if(scenario.isFailed()) {
             byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.embed(screenshot, "image/png");
+            scenario.attach(screenshot, "image/png", "Error");
         }
     }
 }
