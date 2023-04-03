@@ -7,14 +7,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import runner.RunCucumber;
 
+import java.time.Duration;
+
 public class Commands extends RunCucumber {
 
-    public static void waitElementBeClickable(By element, Integer tempo) {
+    public static void waitElementBeClickable(By element, Duration tempo) {
         WebDriverWait wait = new WebDriverWait(getDriver(), tempo);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public static void waitElementBeVisible(By element, Integer tempo) {
+    public static void waitElementBeVisible(By element, Duration tempo) {
         WebDriverWait wait = new WebDriverWait(getDriver(), tempo);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
@@ -23,7 +25,7 @@ public class Commands extends RunCucumber {
         System.out.println("##############################################");
         try {
             System.out.println("********* Vai clicar no elemento: " + element);
-            waitElementBeClickable(element, 10000);
+            waitElementBeClickable(element, Duration.ofMillis(10000));
             getDriver().findElement(element).click();
             System.out.println("********* Clicou no elemento: " + element);
         } catch (Exception error) {
@@ -37,7 +39,7 @@ public class Commands extends RunCucumber {
         System.out.println("##############################################");
         try {
             System.out.println("********* Vai preencher o campo: " + element);
-            waitElementBeVisible(element, 10000);
+            waitElementBeVisible(element, Duration.ofMillis(10000));
             getDriver().findElement(element).sendKeys(value);
             System.out.println("********* Preencheu o campo: " + element);
         } catch (Exception error) {
@@ -50,7 +52,7 @@ public class Commands extends RunCucumber {
     public static void checkMessage(By element, String expectedMessage) {
         System.out.println("##############################################");
         System.out.println("********* Vai validar mensagem: " + expectedMessage);
-        waitElementBeVisible(element, 10000);
+        waitElementBeVisible(element, Duration.ofMillis(2000));
         String actualMessage = getDriver().findElement(element).getText();
 
         //Quando não der certo, vai quebrar o teste!!!
