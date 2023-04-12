@@ -53,7 +53,7 @@ public class Commands extends RunCucumber {
     }
 
     public static void checkMessage(By element, String expectedMessage) {
-        System.out.println("##############################################");
+        System.out.println("***************************************************");
         System.out.println("********* Vai validar mensagem: " + expectedMessage);
         waitElementBeVisible(element, Duration.ofMillis(2000));
         String actualMessage = getDriver().findElement(element).getText();
@@ -63,7 +63,7 @@ public class Commands extends RunCucumber {
         //Quando não der certo, vai quebrar o teste!!!
 
         System.out.println("********* Validou mensagem: " + expectedMessage);
-        System.out.println("##############################################");
+        System.out.println("***************************************************");
 
     }
 
