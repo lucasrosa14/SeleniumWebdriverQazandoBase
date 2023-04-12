@@ -63,3 +63,9 @@ jobs:
           SLACK_MESSAGE: 'Falha na execução dos testes do PR :rotating_light:'
           SLACK_TITLE: 'Falha na execução dos testes do PR :rotating_light:'
           SLACK_USERNAME: FALHA
+
+      - name: Enviar notificação para Slack
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
