@@ -2,6 +2,7 @@ package support;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -42,6 +43,8 @@ public class Commands extends RunCucumber {
             waitElementBeVisible(element, Duration.ofMillis(10000));
             getDriver().findElement(element).sendKeys(value);
             System.out.println("********* Preencheu o campo: " + element);
+            JavascriptExecutor jse = (JavascriptExecutor)getDriver();
+            jse.executeScript("window.scrollBy(0,100)", "");
         } catch (Exception error) {
             System.out.println("********* Aconteceu um erro ao tentar preencher o campo: " + element);
             System.out.println(error);

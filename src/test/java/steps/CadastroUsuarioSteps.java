@@ -5,6 +5,7 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
+import org.openqa.selenium.JavascriptExecutor;
 import pages.CadastroUsuarioPage;
 import pages.LoginPage;
 import runner.RunCucumber;
@@ -26,7 +27,7 @@ public class CadastroUsuarioSteps extends RunCucumber {
 
     @Dado("^preencho todos os campos obrigatórios$")
     public void preencho_campos_obrigatorios() {
-        cadastroPage.preencheNome("Eduardo");
+        cadastroPage.preencheNome("Lucas");
         cadastroPage.preencheEmail(getRandomEmail());
         cadastroPage.preencherSenha(generateRandomPassword());
     }
