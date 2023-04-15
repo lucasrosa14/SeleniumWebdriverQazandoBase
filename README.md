@@ -10,4 +10,6 @@
 * Cucumber
 * Selenium Webdriver
 * Github Actions (CI/CD pipeline) 
+
+[![Smoke Tests - PR](https://github.com/lucasrosa14/SeleniumWebdriverQazandoBase/actions/workflows/tests.yml/badge.svg)](https://github.com/lucasrosa14/SeleniumWebdriverQazandoBase/actions/workflows/tests.yml)
 @autor: lucasrosa14
