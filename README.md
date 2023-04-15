@@ -9,7 +9,5 @@
 * Gherkin
 * Cucumber
 * Selenium Webdriver
-* Github Actions (CI/CD pipeline) ![Pipeline](https://github.com/lucasrosa14/SeleniumWebdriverQazandoBase/workflows/Smoke Tests - PR/badge.svg)
-
-
+* Github Actions (CI/CD pipeline) 
 @autor: lucasrosa14
